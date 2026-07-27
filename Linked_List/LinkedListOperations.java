@@ -95,7 +95,7 @@ public static void insertatpos(int data,int target)//Insert at any position
           return;
       }
       else if(head.next==null)
-      {gi
+      {git
           head=null;
       }
       else
@@ -145,6 +145,22 @@ public static void insertatpos(int data,int target)//Insert at any position
                 System.out.println("Target not found");
             }
        }
+   }
+   public static reverseList()
+   {
+       Node prev=null;
+       Node cur=head;
+       Node nextp;
+       while(cur!=null)
+       {
+           nextp=cur.next;
+           cur.next=prev;
+           prev=cur;
+           cur=nextp;
+       }
+       head=prev;
+       print();
+       return head;
    }
    public static void print()
    {
