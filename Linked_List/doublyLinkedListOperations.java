@@ -91,6 +91,64 @@ public class DoublyLinkedList
     print();
     return;
 }
+public void deleteAtLast()
+{
+    if(head==null)
+    {
+        System.out.println("Null");
+        return;
+    }
+    if(head.next==null)
+    {
+        head=null;
+    }
+    else
+    {
+        Node cur=head;
+        while(cur.next!=null)
+        {
+            cur=cur.next;
+        }
+        cur.prev.next=null;
+    }
+    print();
+}
+public void deleteAtPosition(int target)
+{
+    if(head==null)
+    {
+        System.out.println("Null");
+        return;
+    }
+    Node cur=head;
+    while(cur!=null&&cur.data!=target)
+    {
+        cur=cur.next;
+    }
+    if(cur==null)
+    {
+        System.out.println("Target Not Found");
+        return;
+    }
+    if(cur==head)
+    {
+        head=head.next;
+        if(head!=null)
+        {
+            head.prev=null;
+        }
+    } 
+    else
+    {
+        cur.prev.next=cur.next;
+        if(cur.next!=null)
+        {
+            cur.next.prev=cur.prev;
+        }
+    }
+    print();
+}
+
 public void print()
 {
     Node cur=head;
