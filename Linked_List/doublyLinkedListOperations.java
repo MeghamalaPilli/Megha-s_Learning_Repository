@@ -63,12 +63,12 @@ public class DoublyLinkedList
         {
             Node newNode=new Node(data);
             newNode.next=cur.next;
+            newNode.prev = cur;
             if(cur.next!=null)
             {
               cur.next.prev=newNode;
             }
             cur.next=newNode;
-            newNode.prev=cur;
         }
         return;
 
@@ -158,5 +158,25 @@ public void print()
         cur=cur.next;
     }
     System.out.println("null");
+}
+public void reverse()
+{
+    if (head==null||head.next==null)
+    {
+        return; 
+    }
+    Node cur=head;
+    Node temp=null;
+    while (cur!=null)
+    {
+        temp=cur.prev;
+        cur.prev=cur.next;
+        cur.next=temp;
+        cur=cur.prev;
+    }
+    if (temp!=null)
+    {
+        head=temp.prev;
+    }
 }
 }
